@@ -41,22 +41,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const CustomBackButton(),
-            Flexible(
-              flex: 9,
+            Container(
+              height: size.height * 0.83,
               child: SingleChildScrollView(
                 child: Column(
                   children: [
                     Container(
                       padding: const EdgeInsets.only(left: 75, right: 75),
-                      child: const Center(
+                      child: Center(
                         child: Text(
                           "Let's create your Profile",
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: size.width * 0.07,
                             fontWeight: FontWeight.w500,
                           ),
                           textAlign: TextAlign.center,
@@ -64,9 +65,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 25, bottom: 15),
+                      padding: const EdgeInsets.only(top: 10, bottom: 15),
                       child: SizedBox(
-                        height: size.height * 0.25,
+                        height: size.height * 0.20,
                         child: Image.asset("assets/images/create_profile.png"),
                       ),
                     ),
@@ -114,15 +115,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
             ),
-            Flexible(
-              flex: 1,
-              fit: FlexFit.loose,
-              child: SubmitButton(
-                text: 'Next',
-                callback: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => CategoryScreen()));
-                },
-              ),
+            SubmitButton(
+              text: 'Next',
+              callback: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => CategoryScreen()));
+              },
             ),
           ],
         ),

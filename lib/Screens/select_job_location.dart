@@ -7,6 +7,7 @@ import 'package:flutter_assessment/widgets/custom_search_field.dart';
 
 class SelectJobLocation extends StatefulWidget {
   final String city;
+
   const SelectJobLocation({Key? key, required this.city}) : super(key: key);
 
   @override
@@ -54,7 +55,8 @@ class _SelectJobLocationState extends State<SelectJobLocation> {
           child: Column(
             children: [
               Container(
-                padding: const EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
+                padding: const EdgeInsets.only(
+                    left: 15, right: 15, top: 10, bottom: 10),
                 child: TextFormField(
                   onTap: () {
                     Navigator.pop(context);
@@ -69,8 +71,10 @@ class _SelectJobLocationState extends State<SelectJobLocation> {
                           color: Colors.grey,
                         ),
                       ),
-                      prefixIcon: const Icon(Icons.search, color: Colors.grey,)
-                  ),
+                      prefixIcon: const Icon(
+                        Icons.search,
+                        color: Colors.grey,
+                      )),
                 ),
               ),
               CustomSearchField(
@@ -80,33 +84,39 @@ class _SelectJobLocationState extends State<SelectJobLocation> {
               ),
               Flexible(
                 child:
-                searchresult.isNotEmpty || _serachController.text.isNotEmpty
-                    ? ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: searchresult.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    String listData = searchresult[index];
-                    return ListTile(
-                      title: Text(listData.toString()),
-                      onTap: () {
-                        Navigator.of(context).pop([widget.city, listData]);
-                      },
-                    );
-                  },
-                )
-                    : ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: location[widget.city]!.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    String listData = location[widget.city]![index];
-                    return ListTile(
-                      title: Text(listData.toString()),
-                      onTap: () {
-                        Navigator.of(context).pop([widget.city, listData]);
-                      },
-                    );
-                  },
-                ),
+                    searchresult.isNotEmpty || _serachController.text.isNotEmpty
+                        ? ListView.separated(
+                            shrinkWrap: true,
+                            itemCount: searchresult.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              String listData = searchresult[index];
+                              return ListTile(
+                                title: Text(listData.toString()),
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pop([widget.city, listData]);
+                                },
+                              );
+                            },
+                            separatorBuilder: (context, index) =>
+                                Divider(height: 0, color: Colors.grey),
+                          )
+                        : ListView.separated(
+                            shrinkWrap: true,
+                            itemCount: location[widget.city]!.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              String listData = location[widget.city]![index];
+                              return ListTile(
+                                title: Text(listData.toString()),
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pop([widget.city, listData]);
+                                },
+                              );
+                            },
+                            separatorBuilder: (context, index) =>
+                                Divider(height: 0, color: Colors.grey),
+                          ),
               ),
             ],
           ),
@@ -114,6 +124,7 @@ class _SelectJobLocationState extends State<SelectJobLocation> {
       ),
     );
   }
+
   void searchOperation(String searchText) {
     searchresult.clear();
     for (int i = 0; i < location[widget.city]!.length; i++) {

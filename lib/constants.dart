@@ -13,7 +13,6 @@ List<dynamic> cities = [
   "Nagpur",
   "Thane",
   "Nashik",
-  "Kalyan",
   "Jalgaon",
   "Nanded",
   "Kolhapur",
@@ -21,13 +20,24 @@ List<dynamic> cities = [
   "Dhule",
   "Amravati",
   "Buldhana",
-  "Solapur",
-  "Navi Mumbai"
+  "Solapur"
 ];
 
+
 Map<String, List> location = {
-  "Mumbai" : ["Mumbai1", "Mumbai2", "Mumbai3", "Mumbai4"],
-  "Pune" : ["Pune1", "Pune2", "Pune3", "Pune4"]
+  "Mumbai" : ["Borivali East", "Borivali West", "Borivlai East", "Dahisar East", "Dahisar West", "Goregaon East", "Goregaon West", "Jogeshwari East", "Jogeshwari West", "Kandivali East", "Kandivali West", "Kandivlai West", "Malad East", "Malad West"],
+  "Pune" : ["Ambegaon", "Baramati", "Bhor	Pune", "Daund", "Haveli", "Indapur", "Junnar", "Khed", "Maval", "Mawal", "Mulashi", "Mulshi", "Purandar", "Shirur"	, "Shiurur"	, "Velhe"],
+  "Nagpur" : ["Bhiwapur", "Hingna", "Kalmeshwar", "Kamptee", "Kamthi", "Katol", "Kuhi", "Mouda", "Narkhed", "Parseoni", "Ramtek", "Savner", "Umred"],
+  "Thane" : ["Ambarnath", "Bassein", "Bhiwandi", "Dahanu", "Digha", "Jawhar", "Kalyan", "Mokhada", "Murbad", "Palghar", "Rabale", "Shahapur", "Talasari", "Thane", "Vada", "Vasai", "Vikramgad", "Wada"],
+  "Nashik" : ["Chandvad", "Devla", "Dindoir", "Igatpuri", "Kalwan", "Kalwn", "Malegaon", "Nandgaon", "Nashik", "Niphad", "Peint", "Peth", "Satana", "Sinnar", "Surgana", "Trimbak", "Trimbakeshwar", "Yeola"],
+  "Jalgaon" : ["Amalner", "Bhadgaon", "Bhusawal", "Bodwad", "Chalisgoan", "Chopda", "Dharangaon", "Erandol", "Jalgaon", "Jalgoan", "Muktai Nagar", "Pachora", "Parola", "Raver", "Yawal"],
+  "Nanded" : ["Ardhapur", "Bhokar", "Biloli", "Bvhokar", "Degloor", "Dharmabad", "Hadgaon", "Himayatnagar", "Kandhar", "Kandhr", "Kinwat", "Kiwat", "Loha", "Mahore", "Mudkhed", "Mukhed", "Naigaon", "Nanded", "Umari"],
+  "Kolhapur" : ["Ajara", "Bhudargad", "Chandgad", "Gadhinglaj", "Gaganbavada", "Hatkanagale", "Kagal", "Karveern", "Karvir", "Panhala", "Radhanagari", "Shahuwadi", "Shirol"],
+  "Latur" : ["Ahmadpur", "Ausa", "Chakur", "Deoni", "Jalkot", "Latur", "Nilanga", "Osmanabad", "Paranda", "Renapur", "Shirur", "Udgir"],
+  "Dhule" : ["Dhule", "Sakri", "Shinkheda", "Shirpur", "Sindkhede"],
+  "Amravati" : ["Achalpur City", "Amaravati", "Anjangaon", "Bhatkuli", "Chandur Bazar", "Chikhaldara", "Daryapu	Amrav", "Dhamangaon", "Dharni", "Morshi", "Nandgaon", "Paratwada"],
+  "Buldhana" : ["Budlana", "Chikhli", "Deulgaon Mahi", "Dulgaon Raja", "Jalgaon", "Jalgaon (Jamod)", "Kahmgaon", "Khamgoan", "Lonar", "Malkapur", "Mehkar", "Motala", "Nandura", "Sangrampur", "Shegaon", "Sindkhed Raja", "Sonala"],
+  "Solapur" : ["Akkaikot", "Akkalkot", "Barshi", "Karmala", "Karmalaa", "Madha", "Mahda", "Malshira", "Malshiras", "Malsiras", "Malsras", "Mangalvedha", "Mhol", "Mohol", "Nort Solapur", "Pandharpur", "Sangola"],
 };
 
 List<String> categoryList = [
@@ -35,19 +45,19 @@ List<String> categoryList = [
   "Telecaller/ BPO",
   "Graphic Designer",
   "Technology",
-  "Hello",
-  "what",
-  "yes",
-  "No",
+  "Network Administrator",
+  "Systems Analyst",
+  "Database Administrator",
+  "Data Scientist",
 ];
 
-Map<String, Icon> categories = {
-  "Business Development" : Icon(Icons.access_time),
-  "Telecaller/ BPO" : Icon(Icons.access_time),
-  "Graphic Designer" : Icon(Icons.access_time),
-  "Technology" : Icon(Icons.access_time),
-  "Hello" : Icon(Icons.access_time),
-  "what" : Icon(Icons.access_time),
-  "yes" : Icon(Icons.access_time),
-  "No" : Icon(Icons.access_time),
+Map<String, IconData> categories = {
+  "Business Development" : Icons.add,
+  "Telecaller/ BPO" : Icons.access_time,
+  "Graphic Designer" : Icons.abc_rounded,
+  "Technology" : Icons.ac_unit,
+  "Network Administrator" : Icons.baby_changing_station,
+  "Systems Analyst" : Icons.calendar_month,
+  "Database Administrator" : Icons.dangerous_rounded,
+  "Data Scientist" : Icons.e_mobiledata_outlined,
 };

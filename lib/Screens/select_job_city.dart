@@ -58,40 +58,51 @@ class _SelectJobCityState extends State<SelectJobCity> {
                 label: "Search",
               ),
               Flexible(
-                child:
-                    searchresult.isNotEmpty || _serachController.text.isNotEmpty
-                        ? ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: searchresult.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              String listData = searchresult[index];
-                              return ListTile(
-                                title: Text(listData.toString()),
-                                onTap: () async {
-                                  data = await Navigator.push(context, MaterialPageRoute(builder: (_) => SelectJobLocation(city: listData)));
-                                  if(data.isNotEmpty) {
-                                    Navigator.pop(context, data);
-                                  }
-                                },
-                              );
+                child: searchresult.isNotEmpty ||
+                        _serachController.text.isNotEmpty
+                    ? ListView.separated(
+                        shrinkWrap: true,
+                        itemCount: searchresult.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          String listData = searchresult[index];
+                          return ListTile(
+                            title: Text(listData.toString()),
+                            onTap: () async {
+                              data = await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) =>
+                                          SelectJobLocation(city: listData)));
+                              if (data.isNotEmpty) {
+                                Navigator.pop(context, data);
+                              }
                             },
-                          )
-                        : ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: cities.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              String listData = cities[index];
-                              return ListTile(
-                                title: Text(listData.toString()),
-                                  onTap: () async{
-                                    data = await Navigator.push(context, MaterialPageRoute(builder: (_) => SelectJobLocation(city: listData)));
-                                    if(data.isNotEmpty) {
-                                      Navigator.pop(context, data);
-                                    }
-                                  }
-                              );
-                            },
-                          ),
+                          );
+                        },
+                        separatorBuilder: (context, index) =>
+                            Divider(height: 0, color: Colors.grey),
+                      )
+                    : ListView.separated(
+                        shrinkWrap: true,
+                        itemCount: cities.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          String listData = cities[index];
+                          return ListTile(
+                              title: Text(listData.toString()),
+                              onTap: () async {
+                                data = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) =>
+                                            SelectJobLocation(city: listData)));
+                                if (data.isNotEmpty) {
+                                  Navigator.pop(context, data);
+                                }
+                              });
+                        },
+                        separatorBuilder: (context, index) =>
+                            Divider(height: 0, color: Colors.grey),
+                      ),
               ),
             ],
           ),
@@ -99,6 +110,7 @@ class _SelectJobCityState extends State<SelectJobCity> {
       ),
     );
   }
+
   void searchOperation(String searchText) {
     searchresult.clear();
     for (int i = 0; i < cities.length; i++) {
